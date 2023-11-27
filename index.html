@@ -2,12 +2,65 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scratch Teacher Tools</title>
+    <style>
+      main {
+        max-width: 600px;
+        margin: auto;
+        padding: 1em;
+      }
+      div p {
+        text-align: justify;
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <main>
+      <h1>Scratch Plagiarism Checker</h1>
+      <div>
+        <p>
+          A tool for detecting plagiarism in
+          <a href="https://scratch.mit.edu/" target="_blank">Scratch projects</a
+          >.
+        </p>
+
+        <p>
+          Provide a folder or a ZIP file containing projects in the
+          <a
+            href="https://en.scratch-wiki.info/wiki/Scratch_File_Format"
+            target="_blank"
+            >Scratch File Format</a
+          >
+          (".sb3"). The tool will compare the
+          <a
+            href="https://en.scratch-wiki.info/wiki/Scratch_File_Format#Blocks"
+            target="_blank"
+            >blocks</a
+          >
+          and
+          <a
+            href="https://en.scratch-wiki.info/wiki/Scratch_File_Format#Targets"
+            target="_blank"
+            >targets</a
+          >
+          and give a score based on its similarity.
+        </p>
+        <p>
+          Try
+          <a id="example" href="/examples.zip"> uploading an example</a>.
+        </p>
+      </div>
+      <div id="app"></div>
+    </main>
     <script type="module" src="/src/main.ts"></script>
+    <script>
+      function example(e) {
+        e.preventDefault();
+        document.getElementById("fetch").click();
+      }
+      document.getElementById("example").addEventListener("click", example);
+    </script>
   </body>
 </html>
